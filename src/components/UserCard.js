@@ -14,6 +14,7 @@ const UserCard = ({user:{id,name,email,address:{street,city,zipcode}}}) => {
        <br/>
        city : {city}
        <br/> Zipcode: {zipcode}
+       
      </div>
     </Card.Text>
     <Link to={`userPosts/${id}`} style={{textDecoration:'none',color:'rgb(204, 133, 0)'}} >Check my posts</Link>

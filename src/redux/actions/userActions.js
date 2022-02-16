@@ -11,11 +11,11 @@ export const getUsers = () => async (dispatch) =>{
         dispatch({type:GET_USERS_FAILED,payload:error.response.data});        
     }
 }
-export const getPosts = () => async (dispatch) =>{
+export const getPosts = (userId) => async (dispatch) =>{
     dispatch({type:GET_POSTS});
     try {
         // https://jsonplaceholder.typicode.com/posts/?userId=1
-        const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/`);
+        const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/?userId=${userId}`);
         dispatch({type:GET_POSTS_SUCCESS,payload:res.data});
         
     } catch (error) {
@@ -23,10 +23,10 @@ export const getPosts = () => async (dispatch) =>{
     }
 }
 
-export const getComments= () => async (dispatch)=>{
+export const getComments= (postId) => async (dispatch)=>{
     dispatch({type:GET_COMMENTS});
     try {
-        const res = await axios.get('https://jsonplaceholder.typicode.com/comments/')
+        const res = await axios.get(`https://jsonplaceholder.typicode.com/comments/?postId=${postId}`)
         dispatch({type:GET_COMMENTS_SUCCESS,payload:res.data})
     } catch (error) {
         dispatch({type:GET_COMMENTS_FAILED,payload:error.response.data})

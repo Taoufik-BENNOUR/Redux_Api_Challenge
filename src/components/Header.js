@@ -2,10 +2,8 @@ import React from 'react';
 import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Link } from "react-router-dom";
 
-export default function Header() {
-  const users=useSelector(state=>state.userReducer.users)
+export default function Header({setsearch}) {
 
   return (<>
       <Navbar expand="lg" fixed='top' style={{backgroundColor:'rgb(204, 133, 0)'}} >
@@ -16,7 +14,7 @@ export default function Header() {
     <Navbar.Toggle aria-controls="navbarScroll" />
       <Form className="d-flex">
         <FormControl 
-        onChange={(e)=>users.filter(el=>el.name == e.target.value)}
+        onChange={(e)=>setsearch(e.target.value)}
           type="search"
           placeholder="Search"
           className="me-2"

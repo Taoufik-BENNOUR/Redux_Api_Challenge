@@ -3,7 +3,7 @@ import { GET_POSTS, GET_POSTS_FAILED, GET_POSTS_SUCCESS } from "../actionTypes/a
 
 const initialState={
     loading:false,
-    posts:null,
+    posts:[],
     error:null
 }
 

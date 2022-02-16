@@ -3,7 +3,7 @@ import { GET_COMMENTS, GET_COMMENTS_FAILED, GET_COMMENTS_SUCCESS } from "../acti
 
 const initialState={
     loading:false,
-    comments:null,
+    comments:[],
     error:null
 }
 

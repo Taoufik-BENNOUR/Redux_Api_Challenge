@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import UserCard from './UserCard'
 
 
-const UsersList = () => {
+const UsersList = ({search}) => {
     const users=useSelector(state=>state.userReducer.users)
     const loading=useSelector(state=>state.userReducer.loading)
 
@@ -11,7 +11,7 @@ const UsersList = () => {
 <div style={{margin:'100px 12%'}}>
   <h1 style={{textAlign:'center',color:'rgb(204, 133, 0)'}}>{`<i>Will of B</i>`}</h1>
       <div style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap'}}>
-        {users && users.map(user=> <UserCard user={user} key={user.id} /> )}
+        {users && users.filter(el=>el.name.toLowerCase().includes(search.toLowerCase())).map(user=> <UserCard user={user} key={user.id} /> )}
       </div>
 </div>
   )
